@@ -8,7 +8,8 @@ import (
 	"golang.org/x/net/websocket"
 )
 
-const serverAddress = "sandbox.techcompliant.com:2000"
+//const serverAddress = "sandbox.techcompliant.com:2000"
+const serverAddress = "localhost:2000"
 
 func relayServer(ws *websocket.Conn) {
 	conn, err := net.Dial("tcp", serverAddress)
