@@ -1,13 +1,27 @@
 import { Component } from '@angular/core';
-import { EditorComponent } from './editor/editor.component';
-import { EmulatorComponent } from './dcpu/emulator.component';
 
 @Component({
   selector: 'gemu-app',
   template: `
-    <h1>GEMU</h1>
-    <gemu-editor file="main.asm"></gemu-editor>
+    <md-toolbar>
+      <span>GEMU Web IDE</span>
+
+      <nav md-tab-nav-bar>
+        <a md-tab-link
+            *ngFor="let link of navLinks"
+            [routerLink]="link.route"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive">
+          {{link.label}}
+        </a>
+      </nav>
+    </md-toolbar>
+
+    <router-outlet></router-outlet>
   `,
 })
 export class AppComponent  {
+  navLinks = [
+    { route: '/edit', label: 'Editor' },
+  ];
 }

@@ -1,0 +1,9 @@
+@import '../node_modules/@angular/material/core/theming/all-theme';
+@include mat-core();
+
+$gemu-app-primary: mat-palette($mat-indigo);
+$gemu-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+$gemu-app-theme: mat-light-theme($gemu-app-primary, $gemu-app-accent);
+
+@include angular-material-theme($gemu-app-theme);
